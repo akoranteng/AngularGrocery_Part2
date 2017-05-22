@@ -31,7 +31,12 @@ export class GroceryComponent {
   }
   
   onDelete(item){
-	alert('Delete ' + item.id)
+	for(var i = 0;i < this.tasks.length; i++){
+		if(item.id == this.tasks[i].id){
+			this.tasks.splice(i,1);
+			break;
+		}
+	}
   }
 
   
