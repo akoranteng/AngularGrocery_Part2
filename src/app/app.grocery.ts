@@ -9,12 +9,29 @@ import { Component } from '@angular/core';
 })
 
 export class GroceryComponent {
-  task: string;
+  task = {
+	name: '',
+	id: 0
+  };
   tasks = [];
 
   onClick(){
-  	this.tasks.push({name: this.task, strike: false});
-  	this.task = '';
+	if(this.task.id == 0){
+		this.tasks.push({id: (new Date()).getTime(),name: this.task.name, strike: false});
+	}
+	
+  	this.task = {
+		name: '',
+		id: 0
+	};
+  }
+  
+  onEdit(item){
+	this.task = item;
+  }
+  
+  onDelete(item){
+	alert('Delete ' + item.id)
   }
 
   
